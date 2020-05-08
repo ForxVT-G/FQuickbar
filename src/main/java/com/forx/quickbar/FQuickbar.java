@@ -4,6 +4,7 @@ import com.forx.quickbar.client.DebugInfoHandler;
 import com.forx.quickbar.client.HudOverlayHandler;
 import com.forx.quickbar.config.KeyBindings;
 import com.forx.quickbar.client.InputHandler;
+import com.forx.quickbar.helpers.QuickbarHelpers;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -27,6 +28,6 @@ public class FQuickbar
         KeyBindings.init();
         InputHandler.init();
         HudOverlayHandler.init();
-        //DebugInfoHandler.init();
+        DebugInfoHandler.init();
     }
 }

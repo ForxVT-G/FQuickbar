@@ -1,5 +1,6 @@
 package com.forx.quickbar.client;
 
+import com.forx.quickbar.helpers.QuickbarHelpers;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -31,7 +32,7 @@ public class DebugInfoHandler
         {
             String currentItem = Minecraft.getInstance().objectMouseOver.toString();
 
-            textEvent.getLeft().add("active quickbar: " + HudOverlayHandler.activeQuickbar + ", current item: " + currentItem);
+            textEvent.getLeft().add("active quickbar: " + QuickbarHelpers.activeQuickbar);
         }
     }
 }

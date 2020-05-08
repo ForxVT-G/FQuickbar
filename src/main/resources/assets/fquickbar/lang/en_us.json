@@ -1,4 +1,5 @@
 {
   "_comment": "Key Bindings",
-  "key.fquickbar.changeQuickbar": "Change Active Quickbar"
+  "key.fquickbar.changeQuickbarUp": "Change Active Quickbar Up",
+  "key.fquickbar.changeQuickbarDown": "Change Active Quickbar Down"
 }

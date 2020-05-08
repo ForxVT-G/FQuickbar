@@ -14,7 +14,8 @@ import org.lwjgl.glfw.GLFW;
 public final class KeyBindings {
     private static final String categoryName = ModInfo.MODID;
     private static final List<KeyBinding> allBindings;
-    public static final KeyBinding changeQuickbar;
+    public static final KeyBinding changeQuickbarUp;
+    public static final KeyBinding changeQuickbarDown;
 
     static InputMappings.Input getKey(int key) {
         return InputMappings.Type.KEYSYM.getOrMakeInput(key);
@@ -22,8 +23,10 @@ public final class KeyBindings {
 
     static {
         allBindings = ImmutableList.of(
-            changeQuickbar = new KeyBinding("key.fquickbar.changeQuickbar",
-                KeyConflictContext.IN_GAME, getKey(GLFW.GLFW_KEY_LEFT_ALT), categoryName)
+            changeQuickbarUp = new KeyBinding("key.fquickbar.changeQuickbarUp",
+                KeyConflictContext.IN_GAME, getKey(GLFW.GLFW_KEY_LEFT_ALT), categoryName),
+            changeQuickbarDown = new KeyBinding("key.fquickbar.changeQuickbarDown",
+                KeyConflictContext.IN_GAME, getKey(GLFW.GLFW_KEY_RIGHT_ALT), categoryName)
         );
     }
 

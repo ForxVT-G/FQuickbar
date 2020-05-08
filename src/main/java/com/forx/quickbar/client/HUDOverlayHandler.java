@@ -1,6 +1,6 @@
 package com.forx.quickbar.client;
 
-import com.forx.quickbar.helpers.EntityHelpers;
+import com.forx.quickbar.helpers.QuickbarHelpers;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,42 +15,10 @@ import java.util.ArrayList;
 @OnlyIn(Dist.CLIENT)
 public class HudOverlayHandler
 {
-    /*protected Minecraft mc = Minecraft.getInstance();
-    protected static final ResourceLocation WIDGETS_TEX_PATH = new ResourceLocation(
-        "textures/gui/widgets.png");
-    protected int scaledWidth;
-    protected int scaledHeight;*/
-    public static ArrayList<ArrayList<ItemStack>> quickbars = new ArrayList<ArrayList<ItemStack>>();
-    public static int activeQuickbar = 0;
-
     public static void init()
     {
         //ForgeIngameGui.renderHotbar = false;
         MinecraftForge.EVENT_BUS.register(new HudOverlayHandler());
-
-        for (int i = 0; i < 4; i++) {
-            quickbars.add(new ArrayList<ItemStack>());
-
-            for (int j = 0; j < 9; j++) {
-                quickbars.get(i).add(ItemStack.EMPTY);
-            }
-        }
-    }
-
-    public static void switchQuickbar() {
-        PlayerEntity player = EntityHelpers.getRenderViewEntity();
-
-        if (player != null) {
-            for (int i = 0; i < 9; i++) {
-                quickbars.get(activeQuickbar).set(i, player.inventory.mainInventory.get(i));
-            }
-
-            activeQuickbar = (activeQuickbar == 3 ? 0 : activeQuickbar + 1);
-
-            for (int i = 0; i < 9; i++) {
-                player.inventory.setInventorySlotContents(i, quickbars.get(activeQuickbar).get(i));
-            }
-        }
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
@@ -66,7 +34,7 @@ public class HudOverlayHandler
     }
 
     /*private void renderHotbar(float partialTicks) {
-        PlayerEntity playerentity = EntityHelpers.getRenderViewEntity();
+        PlayerEntity playerentity = QuickbarHelpers.getRenderViewEntity();
 
         if (playerentity != null) {
             RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);

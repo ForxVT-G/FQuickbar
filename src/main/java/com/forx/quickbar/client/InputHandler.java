@@ -2,6 +2,8 @@ package com.forx.quickbar.client;
 
 import com.forx.quickbar.FQuickbar;
 import com.forx.quickbar.config.KeyBindings;
+import com.forx.quickbar.helpers.QuickbarHelpers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.util.InputMappings;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.event.GuiScreenEvent;
@@ -27,8 +29,10 @@ public class InputHandler {
     static void handleKeyEvent(int keyCode, int scanCode, int modifiers, int action) {
         InputMappings.Input input = InputMappings.getInputByCode(keyCode, scanCode);
 
-        if (action == 1 && KeyBindings.changeQuickbar.isActiveAndMatches(input)) {
-            HudOverlayHandler.switchQuickbar();
+        if (action == 1 && KeyBindings.changeQuickbarUp.isActiveAndMatches(input)) {
+            QuickbarHelpers.switchQuickbar(KeyBindings.changeQuickbarUp, QuickbarHelpers.MoveSide.UP);
+        } else if (action == 1 && KeyBindings.changeQuickbarDown.isActiveAndMatches(input)) {
+            QuickbarHelpers.switchQuickbar(KeyBindings.changeQuickbarDown, QuickbarHelpers.MoveSide.DOWN);
         }
     }
 }
